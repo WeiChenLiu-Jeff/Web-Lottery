@@ -10,7 +10,7 @@ function createList(allStafff = 200) {
 
 //取range內一個亂數
 function getRandom(range) {
-    return Math.floor((Math.random() * range) + 1);
+    return Math.floor((Math.random() * range));
 }
 
 
@@ -41,22 +41,32 @@ function getStaffList() {
     return tempfList;
 }
 
+function getAmount() {
+    return document.getElementById('prizeAmount').value;
+}
+
 //按下抽獎按鈕要執行的部分
 function getWinner() {
+    //取清單
     var staffList = getStaffList();
-    // TODO:取得要抽的人數
-    // TODO:判斷人數和獎項數量是否可抽
-    var indexArray = getRandomArray(staffList.length, 3);
+
+    //取要抽幾人
+    var amount = getAmount();
+
+    //取亂數陣列作索引
+    var indexArray = getRandomArray(staffList.length, amount);
+
+    //對照索引，取中獎號，將中獎者從清單刪除
     var targetArray = [];
     indexArray.forEach(function (e) {
         targetArray.push(staffList[e]);
-
-        //把中獎者從清單移除
-        staffList[e] = "";
-        staffList = staffList.filter(function (g) {
-            return g
-        });
+        staffList[e] = '';
     })
+
+    //濾掉空白的
+    staffList = staffList.filter(function (g) {
+        return g
+    });
 
     //重新laod清單
     var str = '';
@@ -65,12 +75,12 @@ function getWinner() {
     }
     document.getElementById("staffList").value = str;
 
-    // console.log('抽出的位置(index)為：' + indexArray);
+
     console.log('============================');
+    console.log('抽出的位置(index)為：' + indexArray);
     console.log('得獎的為：' + targetArray);
     console.log('剩下的名單為：' + staffList);
     console.log('剩下的人數為：' + staffList.length);
-    console.log('Textarea已重新load');
     console.log('============================');
 }
 
