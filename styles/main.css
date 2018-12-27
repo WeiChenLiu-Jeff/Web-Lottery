@@ -49,14 +49,33 @@ body {
     height: 100%;
 }
 
-.main input,
-.main input:focus {
-    text-align: center;
-    background: rgba(255, 255, 255, 0.2);
+.main .now {
+    display: inline-flex;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.5);
     margin-bottom: 20px;
-    border: none;
-    font-size: 2em;
 }
+
+.main .now label {
+    text-align: center;
+    font-size: 6rem;
+    line-height: 15rem;
+    margin-right: 20px;
+}
+
+#prizeAmount {
+    font-size: 6rem;
+    color: red;
+}
+
+.main label {
+    text-align: center;
+    font-size: 3rem;
+    line-height: 4rem;
+    margin-right: 20px;
+}
+
+
 
 .main textarea,
 .main textarea:focus {
@@ -66,4 +85,19 @@ body {
     border: none;
     resize: none;
     font-size: 2rem;
+}
+
+.lotteryBody {
+    display: inline-flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+#lotteryModalLabel {
+    font-size: 2rem;
+}
+
+#lotteryWinner {
+    font-size: 5rem;
+    line-height: 4.2rem;
 }

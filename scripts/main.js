@@ -42,11 +42,15 @@ function getStaffList() {
 }
 
 function getAmount() {
-    return document.getElementById('prizeAmount').value;
+    //取得label上的人數
+    return parseInt(document.getElementById('prizeAmount').textContent);
 }
 
 //按下抽獎按鈕要執行的部分
 function getWinner() {
+    //改modal內的標題
+    document.getElementById('lotteryModalLabel').textContent = document.getElementById('prizeName').textContent;
+
     //取清單
     var staffList = getStaffList();
 
@@ -76,12 +80,20 @@ function getWinner() {
     document.getElementById("staffList").value = str;
 
 
+    //這邊的數據到時候拿到modal顯示
     console.log('============================');
-    console.log('抽出的位置(index)為：' + indexArray);
+    // console.log('抽出的位置(index)為：' + indexArray);
     console.log('得獎的為：' + targetArray);
     console.log('剩下的名單為：' + staffList);
     console.log('剩下的人數為：' + staffList.length);
     console.log('============================');
+
+    //先整理過成string再bind
+    var winnerStr = '';
+    targetArray.forEach(function (t) {
+        winnerStr = winnerStr + t + '號' + '<br/>';
+    });
+    $('#lotteryWinner').html(winnerStr);
 }
 
 
