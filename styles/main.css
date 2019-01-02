@@ -51,16 +51,17 @@ body {
 
 .main .now {
     display: inline-flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     background: rgba(255, 255, 255, 0.5);
     margin-bottom: 20px;
 }
 
 .main .now label {
     text-align: center;
-    font-size: 6rem;
-    line-height: 15rem;
-    margin-right: 20px;
+    font-size: 5rem;
+    line-height: 7rem;
 }
 
 #prizeAmount {
@@ -72,7 +73,6 @@ body {
     text-align: center;
     font-size: 3rem;
     line-height: 4rem;
-    margin-right: 20px;
 }
 
 
@@ -84,7 +84,7 @@ body {
     margin-bottom: 20px;
     border: none;
     resize: none;
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 .lotteryBody {

@@ -1,5 +1,5 @@
 //產生完整員工清單
-function createList(allStafff = 200) {
+function createList(allStafff = 25) {
     var s = '';
     for (var e = 1; e < allStafff + 1; e++) {
         s = s + e + '\n';
@@ -96,5 +96,33 @@ function getWinner() {
     $('#lotteryWinner').html(winnerStr);
 }
 
+function palyAnimation() {
+    document.getElementById('diceAnimation').style.display = 'block';
+    document.getElementById('lotteryWinner').style.display = 'none';
+    setTimeout(function(){
+        document.getElementById('diceAnimation').style.display = 'none';
+        document.getElementById('lotteryWinner').style.display = 'block';
+    },5300);
+}
+
+function lotteryClcik() {
+    //取清單
+    var staffList = getStaffList();
+
+    //取要抽幾人
+    var amount = getAmount();
+
+    if (amount > staffList.length) {
+        alert('請確認抽獎人數與獎項數量');
+    } else {
+        palyAnimation();
+        getWinner();
+    }
+}
+
+function checkWinner() {
+    document.getElementById('lotteryModalLabel').textContent = '';
+    $('#lotteryWinner').html('');
+}
 
 createList();

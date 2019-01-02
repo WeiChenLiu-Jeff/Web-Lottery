@@ -15,31 +15,33 @@
         <div class="now">
             <!-- <label>正在抽出：</label> -->
             <label id="prizeName">iPhone Xs Max 256g</label>
-            <label id="prizeAmount">10</label>
-            <label>人</label>
+            <div>
+                <label id="prizeAmount">10</label>
+                <label>人</label>
+            </div>
         </div>
 
         <textarea id="staffList" class="form-control" rows="5" cols="50"></textarea>
-        <button type="button" class="btn btn-warning btn-lg" onclick="getWinner()" data-toggle="modal" data-target="#lotteryModal"
+        <button type="button" class="btn btn-warning btn-lg" onclick="lotteryClcik()" data-toggle="modal" data-target="#lotteryModal"
             style="margin-bottom: 20px;">抽獎</button>
         <button type="button" class="btn btn-light btn-lg" data-toggle="modal" data-target="#settingModal">設定獎項</button>
 
         <!-- Lottery Modal -->
         <div class="modal fade" id="lotteryModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <div  class="modal-content">
+                <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="lotteryModalLabel">開獎</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="checkWinner()">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body lotteryBody">
-                        <!-- <label>得主是：</label> -->
+                        <img id="diceAnimation" src="image/dice.gif">
                         <label id="lotteryWinner"></label>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">確認</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal" onclick="checkWinner()">確認</button>
                     </div>
                 </div>
             </div>
