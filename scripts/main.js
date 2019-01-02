@@ -73,16 +73,15 @@ function getWinner() {
     });
 
     //重新laod清單
-    var str = '';
+    var reloadStr = '';
     for (var i = 0; i < staffList.length; i++) {
-        str = str + staffList[i] + '\n';
+        reloadStr = reloadStr + staffList[i] + '\n';
     }
-    document.getElementById("staffList").value = str;
+    document.getElementById("staffList").value = reloadStr;
 
 
     //這邊的數據到時候拿到modal顯示
     console.log('============================');
-    // console.log('抽出的位置(index)為：' + indexArray);
     console.log('得獎的為：' + targetArray);
     console.log('剩下的名單為：' + staffList);
     console.log('剩下的人數為：' + staffList.length);
@@ -96,7 +95,7 @@ function getWinner() {
     $('#lotteryWinner').html(winnerStr);
 
     //輸出txt
-    var outputText = '得獎的為：' + targetArray + '\n' + '剩下的名單為：' + staffList;
+    var outputText = '得獎的為：' + targetArray + '\n' + '剩下的名單為：' + '\n' + reloadStr;
     saveTextAsFile(document.getElementById('prizeName').textContent, outputText);
 }
 
