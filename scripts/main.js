@@ -94,15 +94,19 @@ function getWinner() {
         winnerStr = winnerStr + t + '號' + '<br/>';
     });
     $('#lotteryWinner').html(winnerStr);
+
+    //輸出txt
+    var outputText = '得獎的為：' + targetArray + '\n' + '剩下的名單為：' + staffList;
+    saveTextAsFile(document.getElementById('prizeName').textContent, outputText);
 }
 
 function palyAnimation() {
     document.getElementById('diceAnimation').style.display = 'block';
     document.getElementById('lotteryWinner').style.display = 'none';
-    setTimeout(function(){
+    setTimeout(function () {
         document.getElementById('diceAnimation').style.display = 'none';
         document.getElementById('lotteryWinner').style.display = 'block';
-    },5300);
+    }, 5300);
 }
 
 function lotteryClcik() {
@@ -125,4 +129,31 @@ function checkWinner() {
     $('#lotteryWinner').html('');
 }
 
+function saveTextAsFile(_fileName, _text) {
+    var textFileAsBlob = new Blob([_text], {
+        type: 'text/plain'
+    });
+
+    var downloadLink = document.createElement("a");
+    downloadLink.download = _fileName;
+    downloadLink.innerHTML = "Download File";
+    if (window.webkitURL != null) {
+        // Chrome allows the link to be clicked
+        // without actually adding it to the DOM.
+        downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+    } else {
+        // Firefox requires the link to be added to the DOM
+        // before it can be clicked.
+        downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+        downloadLink.onclick = destroyClickedElement;
+        downloadLink.style.display = "none";
+        document.body.appendChild(downloadLink);
+    }
+
+    downloadLink.click();
+}
+
+function destroyClickedElement(event) {
+    document.body.removeChild(event.target);
+}
 createList();
