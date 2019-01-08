@@ -20,10 +20,10 @@ body {
     justify-content: center;
     height: 100%;
     width: 100%;
-    background-image: url('../image/background.jpg');
-    background-size: cover;
+    background-image: url('../image/pray2.jpg');
+    background-size: auto;
     background-repeat: no-repeat;
-    background-position: left bottom;
+    background-position: right bottom;
 }
 
 .main {
@@ -71,6 +71,7 @@ body {
     border: none;
     resize: none;
     font-size: 1rem;
+    color: #FFFFFF;
 }
 
 .lotteryBody {
