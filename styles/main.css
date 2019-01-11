@@ -14,7 +14,7 @@ input::-webkit-inner-spin-button {
 }
 
 body {
-    font-family: 'ZCOOL XiaoWei', serif;
+    font-family: 'Noto Sans TC', sans-serif;
     display: inline-flex;
     align-items: center;
     justify-content: center;

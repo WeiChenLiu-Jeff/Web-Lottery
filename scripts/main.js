@@ -155,4 +155,11 @@ function saveTextAsFile(_fileName, _text) {
 function destroyClickedElement(event) {
     document.body.removeChild(event.target);
 }
+
+
 createList();
+
+// reload warning
+window.onbeforeunload = function () {
+    return "Data will be lost if you leave the page, are you sure?";
+};
