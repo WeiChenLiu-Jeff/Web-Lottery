@@ -40,7 +40,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.65);
     margin-bottom: 20px;
 }
 
@@ -85,6 +85,6 @@ body {
 }
 
 #lotteryWinner {
-    font-size: 5rem;
-    line-height: 4.2rem;
+    font-size: 6rem;
+    line-height: 6rem;
 }
