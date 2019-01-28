@@ -1,5 +1,5 @@
 //產生完整員工清單
-function createList(allStafff = 225) {
+function createList(allStafff = 223) {
     var s = '';
     for (var e = 1; e < allStafff + 1; e++) {
         s = s + e + '\n';
